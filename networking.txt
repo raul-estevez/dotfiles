@@ -1,0 +1,3 @@
+Find your IP:
+	hostname -I
+	ifconfig

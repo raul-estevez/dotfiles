@@ -52,7 +52,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Move lines up/down
 
-nnoremap k :m-2<CR>
+nnoremap k :m-2<CR>   " GitHub: after k,j,h,l there is a ^[ character (Alt) that does not show in github, you may need to change this doing Ctl+V and then the shortcut (Alt+k...) 
 nnoremap j :m+<CR>
 nnoremap h <<
 nnoremap l >>

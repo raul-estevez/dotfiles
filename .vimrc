@@ -19,7 +19,7 @@ set tabstop=4
 set ai " Auto indent
 set si " Smart indent
 set wrap " Wrap lines cuando se salen de la pantalla
-
+set backspace=indent,eol,start
 
 call plug#begin('~/.vim/plugged')
    Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -49,3 +49,15 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use <Tab> and <S-Tab> to navigate the completion list
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Move lines up/down
+
+nnoremap k :m-2<CR>
+nnoremap j :m+<CR>
+nnoremap h <<
+nnoremap l >>
+vnoremap h <gv
+vnoremap l >gv
+
+" New Line
+nmap <C-o> o<Esc>

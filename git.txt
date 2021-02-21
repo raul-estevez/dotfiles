@@ -13,10 +13,10 @@
     git remote add origin git@github.com:username/repository
     (ONLY if you already added the sshkeys to GitHub)
     git remote add origin GitHubRepoURL
-
+    (If you dont have sshkeys)
 # Anytime you want to push to GitHub.
     git push -u origin main
-    (If you add -u then the ongoing times you only need to type "git push")
+    (If you add -u then the ongoing times you push you only need to type "git push")
 
 
 
@@ -39,5 +39,5 @@ ssh-add -K PathToPrivateKey     # Add your private key to ssh-agent
 
 ########################## NOTES  ##########################
 
-2FA can be a problem when using User/Pass when commint
+2FA can be a problem when using User/Pass when commiting
 If you need to change the default branch name you need to be in a version >= 2.28 (You may need to build from source) https://stackoverflow.com/questions/65173291/git-push-error-src-refspec-main-does-not-match-any-on-linux

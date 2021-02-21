@@ -40,4 +40,4 @@ ssh-add -K PathToPrivateKey     # Add your private key to ssh-agent
 ########################## NOTES  ##########################
 
 2FA can be a problem when using User/Pass when commint
-If you need to change the default branch name you need to be in a version >= 2.28 (You may need to build from source)
+If you need to change the default branch name you need to be in a version >= 2.28 (You may need to build from source) https://stackoverflow.com/questions/65173291/git-push-error-src-refspec-main-does-not-match-any-on-linux

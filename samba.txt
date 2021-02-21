@@ -1,3 +1,0 @@
-Copy a file to a server:
-	scp file1 user@ipHost:file2
-	e.g scp /home/baobab/comandosLinux/networking.txt carlos@192.168.1.25:/home/juan/NAS

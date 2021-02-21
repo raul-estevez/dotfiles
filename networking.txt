@@ -3,7 +3,7 @@ Find your IP:
 	ifconfig
 Connect to eth0 if no internet:
 	sudo nano /etc/network/interfaces
-	-Append the following lines to the end os the file
+	-Append the following lines to the end of the file
 	allow-hotplug eth0
 	iface eth0 inet dhcp
 	-Try this (one shoud work):

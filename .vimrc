@@ -32,10 +32,10 @@ colorscheme gruvbox
 set background=dark
 
 " NERDTree
-
 nnoremap <C-f> :NERDTreeFind<CR> " Abrir NERDTree
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
+
 "Moverse entre splits
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -43,7 +43,6 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " CoC maps
-
 " Use ENTER to confirm completion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use <Tab> and <S-Tab> to navigate the completion list
@@ -51,13 +50,23 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Move lines up/down
-
 nnoremap k :m-2<CR>   " GitHub: after k,j,h,l there is a ^[ character (Alt) that does not show in github, you may need to change this doing Ctl+V and then the shortcut (Alt+k...) 
 nnoremap j :m+<CR>
 nnoremap h <<
 nnoremap l >>
 vnoremap h <gv
 vnoremap l >gv
+vnoremap k :m-2<CR>
+vnoremap j :m+<CR>
 
 " New Line
 nmap <C-o> o<Esc>
+
+" Auto close brackets
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O

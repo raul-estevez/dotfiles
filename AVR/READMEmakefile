@@ -1,0 +1,27 @@
+This is a README file explaining how to use this MAKEFILE for compiling and uploading AVR-C code to a AVR chip.
+
+First you need to specify these variables:
+	MCU: The name of the chip you are using. More info in avr-gcc --target-help.
+	F_CPU: The frecuency you configured your chip to work, in Hertzs 
+	BAUD: The baudrate used to talk to the chip
+
+Optional variables:
+	TARGET: The name of the project, by default it gets the name of the enclosing folder, but you can delete this definition and use a custom name.
+	SOURCE: All the *.c files, by dafult it gets all the files from de current folder, but you can specify any other (sub-)folders like this:
+	SOURCES = $(wildcard *.c /any/folder/*.c other/folder/*.c)
+
+The "Compilation options" section specifies the behavior of the compiler by defining the flags passed to avr-gcc 
+
+PATTERN RULES 
+
+all: Default call when you type make
+debug: Display source files, MCU, F_CPU, BAUD
+size: Display the size of your project
+clean: remove ALL the files generated from the compiling, keeps *.c files
+flash: flash to your chip
+program: same as flash (is an alias)
+
+
+FUSES
+
+You need to manually type your fuses the first time you use the Makefile by setting the LFUSE, HFUSE and EFUSE values.

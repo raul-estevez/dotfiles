@@ -1,0 +1,7 @@
+https://lassekarstensen.wordpress.com/2014/06/27/disable-spotify-song-change-notification-in-debian-linux/
+
+After version 0.9.10, track change notifications were enabled by default. They can be quite intrusive. To disable them, add the following line to ~/.config/spotify/Users/<spotifylogin>-user/prefs
+
+    ui.track_notifications_enabled=false
+    It is also possible to launch spotify with the –ui.track_notifications_enabled=false option.
+

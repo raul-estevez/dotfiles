@@ -1,0 +1,12 @@
+Find your IP:
+	hostname -I
+	ifconfig
+Connect to eth0 if no internet:
+	sudo nano /etc/network/interfaces
+	-Append the following lines to the end of the file
+	allow-hotplug eth0
+	iface eth0 inet dhcp
+	-Try this (one shoud work):
+	sudo ifdown eth0
+	sudo ifup eth0
+	https://askubuntu.com/questions/319798/how-do-i-install-a-network-manager-on-ubuntu	

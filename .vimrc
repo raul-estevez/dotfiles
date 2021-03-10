@@ -37,10 +37,10 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
     \ quit | endif
 
 "Moverse entre splits
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+map h <C-w>h
+map j <C-w>j
+map k <C-w>k
+map l <C-w>l
 
 " CoC maps
 " Use ENTER to confirm completion
@@ -51,13 +51,14 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Move lines up/down
 nnoremap k :m-2<CR>   " GitHub: after k,j,h,l there is a ^[ character (Alt) that does not show in github, you may need to change this doing Ctl+V and then the shortcut (Alt+k...) 
-nnoremap j :m+<CR>
-nnoremap h <<
-nnoremap l >>
-vnoremap h <gv
-vnoremap l >gv
-vnoremap k :m-2<CR>
-vnoremap j :m+<CR>
+nnoremap <C-j> :m+<CR>
+nnoremap <C-h> <<
+nnoremap <C-l> >>
+nnoremap <C-k> :m-2<CR>
+vnoremap <C-h> <gv
+vnoremap <C-l> >gv
+vnoremap <C-k> :m-2<CR>
+vnoremap <C-j> :m+<CR>
 
 " New Line
 nmap <C-o> o<Esc>

@@ -37,10 +37,15 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
     \ quit | endif
 
 "Moverse entre splits
-map h <C-w>h
-map j <C-w>j
-map k <C-w>k
-map l <C-w>l
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
+inoremap <M-h> <C-w>h
+inoremap <M-j> <C-w>j
+inoremap <M-k> <C-w>k
+inoremap <M-l> <C-w>l
+
 
 " CoC maps
 " Use ENTER to confirm completion
@@ -61,7 +66,7 @@ vnoremap <C-k> :m-2<CR>
 vnoremap <C-j> :m+<CR>
 
 " New Line
-nmap <C-o> o<Esc>
+nnoremap <C-o> o<Esc>
 
 " Auto close brackets
 inoremap " ""<left>
@@ -71,3 +76,16 @@ inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
+
+" Delete without cutting 
+nnoremap x "_x
+nnoremap d "_d
+nnoremap D "_D
+vnoremap d "_d
+
+nnoremap <leader>d ""d
+nnoremap <leader>D ""D
+vnoremap <leader>d ""d
+
+let mapleader = ","
+let g:mapleader = ","

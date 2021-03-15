@@ -55,7 +55,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Move lines up/down
-nnoremap k :m-2<CR>   " GitHub: after k,j,h,l there is a ^[ character (Alt) that does not show in github, you may need to change this doing Ctl+V and then the shortcut (Alt+k...) 
+nnoremap <C-k> :m-2<CR>
 nnoremap <C-j> :m+<CR>
 nnoremap <C-h> <<
 nnoremap <C-l> >>
@@ -83,9 +83,8 @@ nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
 
-nnoremap <leader>d ""d
-nnoremap <leader>D ""D
-vnoremap <leader>d ""d
+nnoremap <Leader>d ""d
+nnoremap <Leader>D ""D
+noremap <Leader>d ""d
 
 let mapleader = ","
-let g:mapleader = ","

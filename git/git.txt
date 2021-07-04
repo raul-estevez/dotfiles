@@ -1,44 +1,25 @@
-# First initialize the repository.
-    git init
+########################## INITIAL CONFIGURATION ##########################
 
-# Add all the files to the staging area.
-    git add file1 file2 ...
-    (You can add -A to add all the files or . to recursively add all the folders)
+For ease of use, I prefer to use SSH to clone & push files into GitHub. For this we will need to generate a public/private key pair and upload it to GitHub.
 
-# Commit.
-    git commit -m "commitMessage"
-    (If you want a longer commit message just type "git commit" and your deafult text editor will open)
+First we generate the key pair:
+    $ ssh-keygen -t ed25519 -C "your_email@example.com"
+When prompted to "Enter a file in which to save the key" just press enter, same with the passphrase.
 
-# Connect to GitHub.
-    git remote add origin git@github.com:username/repository
-    (ONLY if you already added the sshkeys to GitHub)
-    git remote add origin GitHubRepoURL
-    (If you dont have sshkeys)
+Then we need to add the private key to the ssh agent of your SO:
+    First start the agent:
+        $ eval "$(ssh-agent -s)"
+    The if you accepted the defaults in the last step just type:
+        $ ssh-add ~/.ssh/id_ed25519
 
-# Anytime you want to push to GitHub.
-    git push -u origin main
-    (If you add -u then the ongoing times you push you only need to type "git push")
+Then you need to add the public SSH key to your github account.
 
+IMPORTANT: If you want to avoid typing your credentials every time you interact with github in a cloned repo, clone the repository usign SSH:
+    $ git clone git@github.com:username/repo
 
-
-########################## INITIAL GIT CONFIG ##########################
-
-git config --global user.name "Your name here"
-git config --global user.email "Your email here"
-git config --global user.editor vim/emacs/VScode...
-git config --global init.defaultBranch main     # Change the default branch name to "main" (GitHub friendly)
-
-
-########################## SSH KEYS ##########################
-
-ssh-keygen -t rsa -C "your email"
-
-Now copy the content of the generated .pub key and paste it in your GitHub account settings.
-
-ssh-add -K PathToPrivateKey     # Add your private key to ssh-agent
-
-
-########################## NOTES  ##########################
+########################## NOTES ##########################
 
 2FA can be a problem when using User/Pass when commiting
 If you need to change the default branch name you need to be in a version >= 2.28 (You may need to build from source) https://stackoverflow.com/questions/65173291/git-push-error-src-refspec-main-does-not-match-any-on-linux
+
+

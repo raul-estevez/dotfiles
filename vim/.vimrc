@@ -21,11 +21,19 @@ set si " Smart indent
 set wrap " Wrap lines cuando se salen de la pantalla
 set backspace=indent,eol,start
 
+" Installation of Plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
    Plug 'neoclide/coc.nvim', {'branch': 'release'}
    Plug 'preservim/nerdtree'
    Plug 'itchyny/lightline.vim'
    Plug 'morhetz/gruvbox'
+   Plug 'tpope/vim-fugitive'
 call plug#end()
 
 colorscheme gruvbox

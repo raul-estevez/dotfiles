@@ -7,7 +7,7 @@ BAUD = 9600UL
 ##### PROGRAMER #####
 PROGRAMMER_TYPE = usbtiny
 PROGRAMMER_ARGS = # USBTiny works with no further arguments
-LIBDIR = /usr/local/avr/avr/include
+LIBDIR = /usr/avr/include
 
 ##### PROGRAMS USED, DONT CHANGE IF THEY ARE IN PATH #####
 CC = avr-gcc

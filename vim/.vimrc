@@ -1,4 +1,6 @@
 syntax on 
+filetype plugin indent on
+set hidden
 
 set nu
 set ruler " Show cursor current position
@@ -8,7 +10,7 @@ set ignorecase " Ignore cases when searching
 set smartcase " 
 set hlsearch " Highlight search results
 set showmatch " Show matching brackets when text indicator is over them
-set noerrorbells " Quita la mierda de los avisos
+set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
@@ -18,8 +20,15 @@ set shiftwidth=4
 set tabstop=4
 set ai " Auto indent
 set si " Smart indent
-set wrap " Wrap lines cuando se salen de la pantalla
+"set wrap " Wrap lines cuando se salen de la pantalla
 set backspace=indent,eol,start
+set relativenumber
+
+set textwidth=130
+set colorcolumn=130
+
+let maplocalleader = ","
+let mapleader = ","
 
 " Installation of Plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -29,13 +38,30 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-   Plug 'neoclide/coc.nvim', {'branch': 'release'}
    Plug 'preservim/nerdtree'
    Plug 'itchyny/lightline.vim'
    Plug 'morhetz/gruvbox'
    Plug 'tpope/vim-fugitive'
+   Plug 'lervag/vimtex'
+   Plug 'SirVer/ultisnips'
 call plug#end()
 
+" Vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+"
+"" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="jk"
+let g:UltiSnipsJumpBackwardTrigger="kj"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+
+" Spell check
+"setlocal spell
+"set spelllang=es,en_gb
+"inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 set background=dark
 
@@ -54,14 +80,6 @@ inoremap <M-j> <C-w>j
 inoremap <M-k> <C-w>k
 inoremap <M-l> <C-w>l
 
-
-" CoC maps
-" Use ENTER to confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Use <Tab> and <S-Tab> to navigate the completion list
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " Move lines up/down
 nnoremap <C-k> :m-2<CR>
 nnoremap <C-j> :m+<CR>
@@ -76,15 +94,6 @@ vnoremap <C-j> :m+<CR>
 " New Line
 nnoremap <C-o> o<Esc>
 
-" Auto close brackets
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
 " Delete without cutting 
 nnoremap x "_x
 nnoremap d "_d
@@ -92,7 +101,4 @@ nnoremap D "_D
 vnoremap d "_d
 
 nnoremap <Leader>d ""d
-nnoremap <Leader>D ""D
 noremap <Leader>d ""d
-
-let mapleader = ","

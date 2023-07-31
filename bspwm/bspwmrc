@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+#$HOME/polybar-collection/launch.sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+
+if [[ $(xrandr -q | grep 'HDMI-1') == *"disconnected"* ]]; then
+    echo "Single monitor"
+    bspc monitor -d I II III IV V VI VII VIII IX X
+else
+    echo "Double monitor"
+    bspc monitor "eDP-1" -d 1 2 3 4 5
+    bspc monitor "HDMI-1" -d  6 7 8 9 0
+    bspc monitor --focus "HDMI-1"
+    bspc monitor --swap  "eDP-1"
+fi
+
+bspc config border_width         1
+bspc config window_gap           0
+bspc config bottom_padding       45
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+#bspc rule -a Zathura state=tiled focus=off
+#bspc rule -a "" desktop='^9' fullscreen=on
+#bspc rule -a Firefox-esr desktop='^10'

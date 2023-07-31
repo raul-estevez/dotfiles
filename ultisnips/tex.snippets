@@ -1,0 +1,558 @@
+# A -> Automatic
+# b -> begining of line
+# w -> in between words
+# i -> inside words
+
+
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+def comment(): 
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+	return x != '0' and y != '0'
+endglobal
+
+## Misc
+snippet beg "Universal beg/end" b
+\\begin{$1}
+	$0
+\\end{$1}
+endsnippet
+
+snippet ie "i.e." w
+i.e.
+endsnippet
+
+snippet emp "\emph{}" w
+\emph{$1} $0
+endsnippet
+
+## FIGURE
+snippet sfig "svg figure" bA
+\begin{figure}[ht]
+	\centering
+	\incfig[1]{$1}
+	\caption{$2}
+	\label{fig:$3}
+\end{figure}
+$0
+endsnippet
+
+
+# TEMPLATES
+snippet template "base template" b
+\documentclass[a4paper, 10pt]{article}
+\input{~/latex/preamble.tex}
+
+\begin{document}
+	\pagestyle{fancy}
+	\fancyhead[L]{${1:ASIGNATURA}}
+	\fancyhead[R]{${2:CLASE/FECHA}}
+	\fancyfoot[L]{Universidade de Vigo}
+
+	$0
+\end{document}
+endsnippet
+
+# Los snippets que tiene el automáticos están pensado para que solo lo sean al principio de línea. Si en algún momento esto te
+# molesta y vienes aquí a cambiarlo, no lo hagas. Simplemente retrocede y escribe en la línea de arriba.
+
+## EQUATIONS
+snippet eq "equation" Ab
+\begin{equation*}
+	$1
+\end{equation*}
+$0
+endsnippet 
+
+snippet neq "equation" Ab
+\begin{equation}\label{$1}
+	$1
+\end{equation}
+$0
+endsnippet 
+
+snippet beq "boxed equation" Ab
+\begin{equation*}
+	\boxed{$1}
+\end{equation*}
+$0
+endsnippet 
+
+snippet bneq "equation" Ab
+\begin{equation}\label{$1}
+	\boxed{$1}
+\end{equation}
+$0
+endsnippet 
+
+snippet gat "gather" Ab
+\begin{gather*}
+	$1
+\end{gather*}
+$0
+endsnippet
+
+snippet ngat "gather" Ab
+\begin{gather}
+	$1
+\end{gather}
+$0
+endsnippet
+
+snippet ali "align" Ab
+\begin{align*}
+	$1
+\end{align*}
+$0
+endsnippet
+
+snippet nali "align" Ab
+\begin{align}
+	$1
+\end{align}
+$0
+endsnippet
+
+## SECTIONS
+snippet chap "chapter" Ab
+\chapter{\sffamily $1} 
+$0
+endsnippet
+
+snippet sec "section" Ab
+\section{\sffamily $1}$0
+$0
+endsnippet
+
+snippet sub "subsection" Ab
+\subsection{\sffamily $1}
+$0
+endsnippet
+
+snippet ssub "subsubsection" Ab
+\subsubsection{\sffamily $1}
+$0
+endsnippet
+
+
+## Enum/Itemize
+snippet enum "Enumerate" bA
+\\begin{enumerate}
+	\\item $0
+\\end{enumerate}
+endsnippet
+
+snippet item "Itemize" bA
+\\begin{itemize}
+	\\item $0
+\\end{itemize}
+endsnippet
+
+snippet it "item" b
+\\item $0
+endsnippet
+
+## Boxed enviorements
+
+snippet thm "Theorem" bA
+\begin{thm}{${1:name}}{${2:label}}
+	$0
+\end{thm}
+endsnippet
+
+snippet prop "Proposition" bA
+\begin{prop}{${1:name}}{${2:label}}
+	$0
+\end{prop}
+endsnippet
+
+snippet exam "Example" bA
+\begin{example}{${1:name}}{${2:label}}
+	$0
+\end{example}
+endsnippet
+
+snippet def "definition" bA
+\begin{definition}{${1:name}}{${2:label}}
+	$0
+\end{definition}
+endsnippet
+
+
+
+
+## Math stuff
+
+# Maybe controversial the i option
+context "math()"
+snippet "of([a-zA-Z])" "x oft -> x(t)" riA 
+(`!p snip.rv=match.group(1)`)
+endsnippet
+
+context "math()"
+priority 1
+snippet iff "iff" Aw
+\iff
+endsnippet
+
+context "math()"
+snippet imp "=> implies" Aw
+\implies
+endsnippet
+
+snippet wrt "whith respect to" Aw
+w.r.t.
+endsnippet
+
+snippet mk "Inline math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+	snip.rv = ' '
+else:
+	snip.rv = ''
+`$2
+endsnippet
+
+snippet km "Inline math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+	snip.rv = ' '
+else:
+	snip.rv = ''
+`$2
+endsnippet
+
+
+
+context "math()"
+priority 0
+snippet ff "Fraction" wA
+\\frac{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+context "math()"
+snippet ne "not equals" iA
+\neq 
+endsnippet
+
+context "math()"
+snippet sq "\sqrt{}" wA
+\sqrt{${1:${VISUAL}}} $0
+endsnippet
+
+context "math()"
+snippet td "to the ... power" iA
+^{$1}$0
+endsnippet
+
+context "math()"
+snippet __ "subscript" iA
+_{$1}$0
+endsnippet
+
+context "math()"
+snippet -- "subscript" iA
+_{$1}$0
+endsnippet
+
+
+
+snippet mcal "mathcal" wA
+\mathcal{$1}$0
+endsnippet
+
+context "math()"
+snippet ll "l" wA
+\ell
+endsnippet
+
+context "math()"
+snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp)' "ln" rwA
+\\`!p snip.rv = match.group(1)`
+endsnippet
+
+context "math()"
+snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta)' "ln" rwA
+\\`!p snip.rv = match.group(1)`
+endsnippet
+
+priority 10
+context "math()"
+snippet "hat" "hat" riA
+\hat{$1}$0
+endsnippet
+
+priority 100
+context "math()"
+snippet "([a-zA-Z])hat" "postfix hat" riA
+\hat{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+snippet "([a-zA-Z]),." "postfic vector" ri
+\vec{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+snippet "([a-zA-Z]).," "postfix vector 2" ri
+\vec{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+snippet ov "Overline" Ai
+\overline{$1} $0
+endsnippet
+
+context "math()"
+snippet tx "text in math mode" w
+\text{$1} $0
+endsnippet
+
+context "math()"
+snippet min "min" w
+\min\\{$1\\}$0
+endsnippet
+
+context "math()"
+snippet ceil "ceil function" wA
+\ceil*\\{$1\\} $0
+endsnippet
+
+context "math()"
+snippet floor "floorfunction" wA
+\floor*{$1} $0
+endsnippet
+
+context "math()"
+snippet tau "tau" wA
+\tau $0
+endsnippet
+
+context "math()"
+snippet 2pi "2pi" wA
+2\pi $0
+endsnippet
+
+
+
+
+## Matrix
+snippet pmat "pmat" iA
+\begin{pmatrix} $1 \end{pmatrix} $0
+endsnippet
+
+snippet bmat "bmat" iA
+\begin{bmatrix} $1 \end{bmatrix} $0
+endsnippet
+
+
+
+## Calculus stuff
+
+context "math()"
+snippet etd "e^x" wA
+\mathrm{e}^{$1} $0
+endsnippet
+
+context "math()"
+snippet sum "sum" wA
+\sum_{n=${1:1}}^{${2:\infty}} ${3}
+endsnippet
+
+context "math()"
+snippet lim "limit" wA
+\lim_{${1:n} \to ${2:\infty}} 
+endsnippet
+
+context "math()"
+snippet prod "product" wA
+\prod_{${1:n=${2:1}}}^{${3:\infty}} ${4:${VISUAL}} $0
+endsnippet
+
+context "math()"
+snippet pp "partial deriv" wA
+\partial_{${1:t}} $0
+endsnippet 
+
+context "math()"
+snippet D "derivative (Euler notation)" wA
+\mathrm{D}_{${1:t}} $0
+endsnippet
+
+context "math()" 
+snippet div "divergence" Aw
+\mathbf{\nabla} \cdot $0
+endsnippet
+
+context "math()" 
+snippet rot "rotational" Aw
+\mathbf{\nabla} \times $0
+endsnippet
+
+context "math()"
+snippet dint "integral" Aw
+\int_{$1}^{$2} $0
+endsnippet
+
+context "math()"
+snippet int "integral" Aw
+\int
+endsnippet
+
+context "math()"
+# Necesito saltarme la i para que dint funcione
+snippet "d([a-hj-zA-Z])" "dt,dx,dy..." rwA 
+\diff `!p snip.rv=match.group(1)`
+endsnippet
+
+## Greek letters
+priority 0
+
+snippet \G "Gamma" i
+\Gamma
+endsnippet
+
+snippet \D "Delta" i
+\Delta
+endsnippet
+
+snippet \L "Lambda" i
+\Lambda
+endsnippet
+
+snippet \F "Phi" i
+\Phi
+endsnippet
+
+snippet \P "Pi" i
+\Pi
+endsnippet
+
+snippet \Psi "Psi" i
+\Psi
+endsnippet
+
+snippet \S "Sigma" i
+\Sigma
+endsnippet
+
+snippet \Th "Theta" i
+\Theta
+endsnippet
+
+snippet \Y "Upsilon" i
+\Upsilon
+endsnippet
+
+snippet \X "Xi" i
+\Xi
+endsnippet
+
+snippet \O "Omega" i
+\Omega
+endsnippet
+
+snippet \a "alpha" i
+\alpha
+endsnippet
+
+snippet \b "beta" i
+\beta
+endsnippet
+
+snippet \g "gamma" i
+\gamma
+endsnippet
+
+snippet \d "delta" i
+\delta
+endsnippet
+
+snippet \e "epsilon" i
+\epsilon
+endsnippet
+
+snippet \z "zeta" i
+\zeta
+endsnippet
+
+snippet \h "eta" i
+\eta
+endsnippet
+
+snippet \th "theta" i
+\theta
+endsnippet
+
+snippet \i "iota" i
+\iota
+endsnippet
+
+snippet \k "kappa" i
+\kappa
+endsnippet
+
+snippet \l "lambda" i
+\lambda
+endsnippet
+
+snippet \m "mu" i
+\mu
+endsnippet
+
+snippet \n "nu" i
+\nu
+endsnippet
+
+snippet \x "xi" i
+\xi
+endsnippet
+
+snippet \p "pi" i
+\pi
+endsnippet
+
+snippet \r "rho" i
+\rho
+endsnippet
+
+snippet \s "sigma" i
+\sigma
+endsnippet
+
+snippet \t "tau" i
+\tau
+endsnippet
+
+snippet \y "upsilon" i
+\upsilon
+endsnippet
+
+snippet \f "phi" i
+\phi
+endsnippet
+
+snippet \x "chi" i
+\chi
+endsnippet
+
+snippet \c "psi" i
+\psi
+endsnippet
+
+snippet \o "omega" i
+\omega
+endsnippet
+
+snippet \dg "digamma" i
+\digamma
+endsnippet
+

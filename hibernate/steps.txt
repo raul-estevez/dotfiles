@@ -1,0 +1,36 @@
+This illustrates enabling hibernation on a swap file, not on a swap partition
+
+Create the swapfile:
+    sudo fallocate -l 8G /swapfile
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+    sudo echo "/swapfile none swap sw 0 0" >> /etc/fstab
+
+Find UUID of the swapfile
+    findmnt -no UUID -T /swapfile
+Find offset of the swapfile: (the column physical_offset, usually a large number e.g. 4974592)
+    sudo filefrag -v /swapfile
+Edit the grub
+    sudo vim /etc/default/grub
+Edit the GRUB_CMDLINE_LINUX_DEFAULT line to this:
+    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=foo_UUID resume_offset=foo_offset"
+Update grub:
+    sudo update-grub
+
+Initramfs:
+    sudo vim /etc/initramfs-tools/conf.d/resume
+And paste:
+    RESUME=UUID=foo_UUID resume_offset=foo_offset
+Regenerate the initramfs:
+    sudo update-initramfs -c -k all
+
+For now on, the command:
+    sudo systemctl hibernate
+should work.
+
+
+SUSPEND-THEN-HIBERNATE ON LID CLOSE:
+Edit /etc/systemd/logind.conf and set HandleLidSwitch=suspend-then-hibernate (and also the extenernal power one)
+Edit /etc/systemd/sleep.conf and set HibernateDelaySec= to the number of second you want to stay suspended before you hibernate
+

@@ -4,6 +4,12 @@
 # i -> inside words
 
 
+
+# Los snippets que tiene el automáticos están pensado para que solo lo sean al principio de línea. Si en algún momento esto te
+# molesta y vienes aquí a cambiarlo, no lo hagas. Simplemente retrocede y escribe en la línea de arriba.
+
+
+
 global !p
 def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
@@ -13,6 +19,38 @@ def env(name):
 	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
 	return x != '0' and y != '0'
 endglobal
+
+## Templates
+snippet es_book_template "Spanish main template"
+\documentclass[a4paper, 10pt]{book}
+\input{/home/abby/latex/es_preamble.tex}
+
+\begin{document}
+	\pagestyle{main}
+	\tableofcontents
+	\subfile{$0}
+\end{document}
+endsnippet
+
+snippet en_book_template "English main template" b
+\documentclass[a4paper, 10pt]{book}
+\input{/home/abby/latex/en_preamble.tex}
+
+\begin{document}
+	\pagestyle{main}
+	\tableofcontents
+	\subfile{$0}
+\end{document}
+endsnippet
+
+snippet chapter_template "Spanish chapter template" b
+\documentclass[${1:main_path}]{subfiles}
+\begin{document}
+	\chapter{\sffamily $2}
+	$0
+\end{document}
+endsnippet
+
 
 ## Misc
 snippet beg "Universal beg/end" b
@@ -41,24 +79,6 @@ $0
 endsnippet
 
 
-# TEMPLATES
-snippet template "base template" b
-\documentclass[a4paper, 10pt]{article}
-\input{~/latex/preamble.tex}
-
-\begin{document}
-	\pagestyle{fancy}
-	\fancyhead[L]{${1:ASIGNATURA}}
-	\fancyhead[R]{${2:CLASE/FECHA}}
-	\fancyfoot[L]{Universidade de Vigo}
-
-	$0
-\end{document}
-endsnippet
-
-# Los snippets que tiene el automáticos están pensado para que solo lo sean al principio de línea. Si en algún momento esto te
-# molesta y vienes aquí a cambiarlo, no lo hagas. Simplemente retrocede y escribe en la línea de arriba.
-
 ## EQUATIONS
 snippet eq "equation" Ab
 \begin{equation*}
@@ -81,7 +101,7 @@ snippet beq "boxed equation" Ab
 $0
 endsnippet 
 
-snippet bneq "equation" Ab
+snippet bneq "boxed numbered equation" Ab
 \begin{equation}\label{$1}
 	\boxed{$1}
 \end{equation}
@@ -116,14 +136,21 @@ snippet nali "align" Ab
 $0
 endsnippet
 
+context "math()"
+snippet cases "cases" Ab
+\begin{cases}
+	$1
+\end{cases}
+endsnippet
+
 ## SECTIONS
-snippet chap "chapter" Ab
+snippet chap "chapter" b
 \chapter{\sffamily $1} 
 $0
 endsnippet
 
 snippet sec "section" Ab
-\section{\sffamily $1}$0
+\section{\sffamily $1}
 $0
 endsnippet
 
@@ -140,19 +167,19 @@ endsnippet
 
 ## Enum/Itemize
 snippet enum "Enumerate" bA
-\\begin{enumerate}
-	\\item $0
-\\end{enumerate}
+\begin{enumerate}
+	\item $0
+\end{enumerate}
 endsnippet
 
 snippet item "Itemize" bA
-\\begin{itemize}
-	\\item $0
-\\end{itemize}
+\begin{itemize}
+	\item $0
+\end{itemize}
 endsnippet
 
 snippet it "item" b
-\\item $0
+\item $0
 endsnippet
 
 ## Boxed enviorements
@@ -185,6 +212,12 @@ endsnippet
 
 
 ## Math stuff
+
+
+context "math()"
+snippet inf "infinity" Aw
+\infty
+endsnippet
 
 # Maybe controversial the i option
 context "math()"
@@ -297,12 +330,12 @@ snippet "([a-zA-Z])hat" "postfix hat" riA
 endsnippet
 
 context "math()"
-snippet "([a-zA-Z]),." "postfic vector" ri
+snippet "([a-zA-Z]),\." "postfic vector" Arw
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "([a-zA-Z]).," "postfix vector 2" ri
+snippet "([a-zA-Z])\.," "postfix vector 2" Arw
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet
 

@@ -21,9 +21,9 @@ def env(name):
 endglobal
 
 ## Templates
-snippet es_book_template "Spanish main template"
+snippet templateesbook "Spanish main template"
 \documentclass[a4paper, 10pt]{book}
-\input{/home/abby/latex/es_preamble.tex}
+\input{~/latex/es_preamble.tex}
 
 \begin{document}
 	\pagestyle{main}
@@ -32,9 +32,9 @@ snippet es_book_template "Spanish main template"
 \end{document}
 endsnippet
 
-snippet en_book_template "English main template" b
+snippet templateenbook "English main template" b
 \documentclass[a4paper, 10pt]{book}
-\input{/home/abby/latex/en_preamble.tex}
+\input{~/latex/en_preamble.tex}
 
 \begin{document}
 	\pagestyle{main}
@@ -43,14 +43,13 @@ snippet en_book_template "English main template" b
 \end{document}
 endsnippet
 
-snippet chapter_template "Spanish chapter template" b
+snippet templatechapter "Spanish chapter template" b
 \documentclass[${1:main_path}]{subfiles}
 \begin{document}
 	\chapter{\sffamily $2}
 	$0
 \end{document}
 endsnippet
-
 
 ## Misc
 snippet beg "Universal beg/end" b
@@ -144,7 +143,7 @@ snippet cases "cases" Ab
 endsnippet
 
 ## SECTIONS
-snippet chap "chapter" b
+snippet chap "chapter" bA
 \chapter{\sffamily $1} 
 $0
 endsnippet
@@ -213,10 +212,19 @@ endsnippet
 
 ## Math stuff
 
+context "math()"
+snippet sub "t_{n+1} -> tsubn+1" iA
+_{$1}$0
+endsnippet
+
+context "math()"
+snippet of "x(...) -> xof..." i
+($1)$0
+endsnippet
 
 context "math()"
 snippet inf "infinity" Aw
-\infty
+\infty $0
 endsnippet
 
 # Maybe controversial the i option
@@ -228,16 +236,16 @@ endsnippet
 context "math()"
 priority 1
 snippet iff "iff" Aw
-\iff
+\iff $0
 endsnippet
 
 context "math()"
 snippet imp "=> implies" Aw
-\implies
+\implies $0
 endsnippet
 
 snippet wrt "whith respect to" Aw
-w.r.t.
+w.r.t. $0
 endsnippet
 
 snippet mk "Inline math" wA
@@ -331,12 +339,12 @@ endsnippet
 
 context "math()"
 snippet "([a-zA-Z]),\." "postfic vector" Arw
-\vec{`!p snip.rv=match.group(1)`}
+\vv{`!p snip.rv=match.group(1)`} $0
 endsnippet
 
 context "math()"
 snippet "([a-zA-Z])\.," "postfix vector 2" Arw
-\vec{`!p snip.rv=match.group(1)`}
+\vv{`!p snip.rv=match.group(1)`} $0
 endsnippet
 
 context "math()"
@@ -391,7 +399,7 @@ endsnippet
 ## Calculus stuff
 
 context "math()"
-snippet etd "e^x" wA
+snippet ee "e^x" wA
 \mathrm{e}^{$1} $0
 endsnippet
 
@@ -450,142 +458,141 @@ endsnippet
 priority 0
 
 snippet \G "Gamma" i
-\Gamma
+\Gamma $0
 endsnippet
 
 snippet \D "Delta" i
-\Delta
+\Delta $0
 endsnippet
 
 snippet \L "Lambda" i
-\Lambda
+\Lambda $0
 endsnippet
 
 snippet \F "Phi" i
-\Phi
+\Phi $0
 endsnippet
 
 snippet \P "Pi" i
-\Pi
+\Pi $0
 endsnippet
 
 snippet \Psi "Psi" i
-\Psi
+\Psi $0
 endsnippet
 
 snippet \S "Sigma" i
-\Sigma
+\Sigma $0
 endsnippet
 
 snippet \Th "Theta" i
-\Theta
+\Theta $0
 endsnippet
 
 snippet \Y "Upsilon" i
-\Upsilon
+\Upsilon $0
 endsnippet
 
 snippet \X "Xi" i
-\Xi
+\Xi $0
 endsnippet
 
 snippet \O "Omega" i
-\Omega
+\Omega $0
 endsnippet
 
 snippet \a "alpha" i
-\alpha
+\alpha $0
 endsnippet
 
 snippet \b "beta" i
-\beta
+\beta $0
 endsnippet
 
 snippet \g "gamma" i
-\gamma
+\gamma  $0
 endsnippet
 
 snippet \d "delta" i
-\delta
+\delta $0
 endsnippet
 
 snippet \e "epsilon" i
-\epsilon
+\epsilon $0
 endsnippet
 
 snippet \z "zeta" i
-\zeta
+\zeta $0
 endsnippet
 
 snippet \h "eta" i
-\eta
+\eta $0
 endsnippet
 
 snippet \th "theta" i
-\theta
+\theta $0
 endsnippet
 
 snippet \i "iota" i
-\iota
+\iota $0
 endsnippet
 
 snippet \k "kappa" i
-\kappa
+\kappa $0
 endsnippet
 
 snippet \l "lambda" i
-\lambda
+\lambda $0
 endsnippet
 
 snippet \m "mu" i
-\mu
+\mu $0
 endsnippet
 
 snippet \n "nu" i
-\nu
+\nu $0
 endsnippet
 
 snippet \x "xi" i
-\xi
+\xi $0
 endsnippet
 
 snippet \p "pi" i
-\pi
+\pi $0
 endsnippet
 
 snippet \r "rho" i
-\rho
+\rho $0
 endsnippet
 
 snippet \s "sigma" i
-\sigma
+\sigma $0
 endsnippet
 
 snippet \t "tau" i
-\tau
+\tau $0
 endsnippet
 
 snippet \y "upsilon" i
-\upsilon
+\upsilon $0
 endsnippet
 
 snippet \f "phi" i
-\phi
+\phi $0
 endsnippet
 
 snippet \x "chi" i
-\chi
+\chi $0
 endsnippet
 
 snippet \c "psi" i
-\psi
+\psi $0
 endsnippet
 
 snippet \o "omega" i
-\omega
+\omega $0
 endsnippet
 
 snippet \dg "digamma" i
-\digamma
+\digamm $0
 endsnippet
-

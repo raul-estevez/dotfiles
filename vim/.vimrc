@@ -61,7 +61,8 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 "set spelllang=es,en_gb
 "inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark = 'soft' " soft/medium/hard
+let g:gruvbox_italic = 1 " Italices comments
 colorscheme gruvbox
 set background=dark
 

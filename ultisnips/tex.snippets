@@ -207,6 +207,23 @@ snippet def "definition" bA
 \end{definition}
 endsnippet
 
+## Math letters
+
+snippet mcal "mathcal" wA
+\mathcal{$1}$0
+endsnippet
+
+context "math()"
+snippet ll "l" wA
+\ell
+endsnippet
+
+context "math()"
+snippet bb "\mathbb{}" Aw
+\mathbb{$(1:R)} $0
+endsnippet
+
+
 
 
 
@@ -266,8 +283,6 @@ else:
 `$2
 endsnippet
 
-
-
 context "math()"
 priority 0
 snippet ff "Fraction" wA
@@ -302,17 +317,6 @@ endsnippet
 context "math()"
 snippet -- "subscript" iA
 _{$1}$0
-endsnippet
-
-
-
-snippet mcal "mathcal" wA
-\mathcal{$1}$0
-endsnippet
-
-context "math()"
-snippet ll "l" wA
-\ell
 endsnippet
 
 context "math()"

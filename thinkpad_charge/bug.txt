@@ -1,0 +1,4 @@
+In E and L series thinkpads there is a bug with the firmware that does not show the battery thresholds in tlp-stat -b.
+So don't panic when setting the thresholds in /etc/tlp.conf and then looking at the stats and not showing.
+
+https://askubuntu.com/questions/542779/charging-ignores-tlp-settings

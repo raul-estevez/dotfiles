@@ -1,2 +1,2 @@
-For a temporary full charge and then the setted thresholds:
+For a temporary full charge and then return to the previous thresholds:
     sudo tlp fullcharge

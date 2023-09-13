@@ -121,6 +121,9 @@ alias la='ls -alFh --group-directories-first'
 alias mkdir='mkdir -v'
 alias mv='mv -v'
 alias cp='cp -v'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 cdl() { cd "$@" && ls; }
 

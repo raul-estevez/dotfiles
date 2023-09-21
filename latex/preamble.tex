@@ -50,21 +50,21 @@
 % Number equations by section
 \counterwithin{equation}{section}
 
-% For box around Definition, Theorem (también es lo de poner colores en los
-% teoremas y esas cosas)
-% \usepackage{mdframed}
-% \mdfsetup{skipabove=0.5em,skipbelow=0.5em}
-% \theoremstyle{definition}
-% \newmdtheoremenv[nobreak=true]{definition}{\sffamily Definition}
-% \newmdtheoremenv[nobreak=true]{theorem}{\sffamily Theorem}
-% \newmdtheoremenv[nobreak=true]{note}{\sffamily Note}
-% \newmdtheoremenv[nobreak=true]{notation}{\sffamily Notation}
-% \newmdtheoremenv[nobreak=true]{example}{\sffamily Example}
-% \newmdtheoremenv[nobreak=true]{exercice}{Ejercicio}
+For box around Definition, Theorem (también es lo de poner colores en los
+teoremas y esas cosas)
+\usepackage{mdframed}
+\mdfsetup{skipabove=0.5em,skipbelow=0.5em}
+\theoremstyle{definition}
+\newmdtheoremenv[nobreak=true]{definition}{\sffamily Definition}
+\newmdtheoremenv[nobreak=true]{theorem}{\sffamily Theorem}
+\newmdtheoremenv[nobreak=true]{note}{\sffamily Note}
+\newmdtheoremenv[nobreak=true]{notation}{\sffamily Notation}
+\newmdtheoremenv[nobreak=true]{example}{\sffamily Example}
+\newmdtheoremenv[nobreak=true]{exercice}{Ejercicio}
 
 
-% Fancy gray box arround theorems, propositions, examples
-% The last {} en each enviorement is the auto label prefix i.e. thm:fundamental_calculus, def:partial_derivative... are all labels 
+ Fancy gray box arround theorems, propositions, examples
+ The last {} en each enviorement is the auto label prefix i.e. thm:fundamental_calculus, def:partial_derivative... are all labels 
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems}
 \tcbuselibrary{skins}

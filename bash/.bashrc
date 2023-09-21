@@ -127,3 +127,5 @@ alias ....='cd ../../..'
 
 cdl() { cd "$@" && ls; }
 
+# Vivado...
+export PATH=$PATH:/tools/Xilinx/Vivado/2018.3/bin

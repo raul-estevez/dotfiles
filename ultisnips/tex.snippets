@@ -257,21 +257,21 @@ snippet inf "infinity" Aw
 endsnippet
 
 # Maybe controversial the i option
-context "math()"
-snippet "of([a-zA-Z])" "x oft -> x(t)" riA 
-(`!p snip.rv=match.group(1)`)$0
-endsnippet
+#context "math()"
+#snippet "of([a-zA-Z])" "x oft -> x(t)" riA 
+#(`!p snip.rv=match.group(1)`)$0
+#endsnippet
 
 context "math()"
 priority 1
-snippet "od([a-zA-Z])" "x odn -> x[n]" riA
-[`!p snip.rv=match.group(1)`]$0
+snippet "od" "x odn -> x[n]" iA
+[$1]$0
 endsnippet
 
-#context "math()"
-#snippet of "The same as above but general" iA
-#($1)$0
-#endsnippet
+context "math()"
+snippet of "The same as above but general" iA
+($1)$0
+endsnippet
 
 
 context "math()"

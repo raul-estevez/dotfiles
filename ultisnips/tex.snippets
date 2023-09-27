@@ -263,6 +263,7 @@ snippet "of([a-zA-Z])" "x oft -> x(t)" riA
 endsnippet
 
 context "math()"
+priority 1
 snippet "od([a-zA-Z])" "x odn -> x[n]" riA
 [`!p snip.rv=match.group(1)`]$0
 endsnippet

@@ -274,7 +274,7 @@ endsnippet
 
 context "math()"
 priority 1
-snippet "od" "x odn -> x[n]" iA
+snippet od "x odn -> x[n]" iA
 [$1]$0
 endsnippet
 
@@ -478,18 +478,20 @@ snippet rot "rotational" Aw
 endsnippet
 
 context "math()"
-snippet dint "integral" Aw
+priority 1
+snippet intd "integral" Aw
 \int_{$1}^{$2} $0
 endsnippet
 
+priority 2
 context "math()"
 snippet int "integral" Aw
 \int
 endsnippet
 
 context "math()"
-# Necesito saltarme la i para que dint funcione
-snippet "d([a-hj-zA-Z])" "dt,dx,dy..." rwA 
+priority 0
+snippet "d([a-zA-Z])" "dt,dx,dy..." rwA 
 \diff `!p snip.rv=match.group(1)`
 endsnippet
 

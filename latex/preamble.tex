@@ -52,15 +52,15 @@
 
 % For box around Definition, Theorem (también es lo de poner colores en los
 % teoremas y esas cosas)
-\usepackage{mdframed}
-\mdfsetup{skipabove=0.5em,skipbelow=0.5em}
-\theoremstyle{definition}
-\newmdtheoremenv[nobreak=true]{definition}{\sffamily Definition}
-\newmdtheoremenv[nobreak=true]{theorem}{\sffamily Theorem}
-\newmdtheoremenv[nobreak=true]{note}{\sffamily Note}
-\newmdtheoremenv[nobreak=true]{notation}{\sffamily Notation}
-\newmdtheoremenv[nobreak=true]{example}{\sffamily Example}
-\newmdtheoremenv[nobreak=true]{exercice}{Ejercicio}
+%\usepackage{mdframed}
+%\mdfsetup{skipabove=0.5em,skipbelow=0.5em}
+%\theoremstyle{definition}
+%\newmdtheoremenv[nobreak=true]{definition}{\sffamily Definition}
+%\newmdtheoremenv[nobreak=true]{theorem}{\sffamily Theorem}
+%\newmdtheoremenv[nobreak=true]{note}{\sffamily Note}
+%\newmdtheoremenv[nobreak=true]{notation}{\sffamily Notation}
+%\newmdtheoremenv[nobreak=true]{example}{\sffamily Example}
+%\newmdtheoremenv[nobreak=true]{exercice}{Ejercicio}
 
 
 % Fancy gray box arround theorems, propositions, examples
@@ -74,7 +74,7 @@
     titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
     colframe=white!25!black,colback=white!80!gray,coltitle=white,
     title style={white!25!black},
-fonttitle=\sffamily,fontupper=\normalsize}{thm}
+    fonttitle=\sffamily,fontupper=\normalsize}{thm}
 
 \newtcbtheorem[number within=chapter]{prop}{Proposition}
 {theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
@@ -82,7 +82,7 @@ fonttitle=\sffamily,fontupper=\normalsize}{thm}
     titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
     colframe=white!25!black,colback=white!80!gray,coltitle=white,
     title style={white!25!black},
-fonttitle=\sffamily,fontupper=\normalsize}{prop}
+    fonttitle=\sffamily,fontupper=\normalsize}{prop}
 
 \newtcbtheorem[number within=chapter]{example}{Example}
 {theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
@@ -90,7 +90,7 @@ fonttitle=\sffamily,fontupper=\normalsize}{prop}
     titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
     colframe=white!25!black,colback=white!80!gray,coltitle=white,
     title style={white!25!black},
-fonttitle=\sffamily,fontupper=\normalsize}{ex}
+    fonttitle=\sffamily,fontupper=\normalsize}{ex}
 
 \newtcbtheorem[number within=chapter]{definition}{Definition}
 {theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
@@ -98,7 +98,7 @@ fonttitle=\sffamily,fontupper=\normalsize}{ex}
     titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
     colframe=white!25!black,colback=white!80!gray,coltitle=white,
     title style={white!25!black},
-fonttitle=\sffamily,fontupper=\normalsize}{def}
+    fonttitle=\sffamily,fontupper=\normalsize}{def}
 
 % Figures from inkscape
 \usepackage{import}

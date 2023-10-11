@@ -1,0 +1,44 @@
+\input{~/latex/report_preamble/report_preamble.tex}
+
+% Latex in english
+\usepackage[english]{babel}
+
+% Fancy gray box arround theorems, propositions, examples
+% The last {} en each enviorement is the auto label prefix i.e. thm:fundamental_calculus, def:partial_derivative... are all labels 
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\tcbuselibrary{skins}
+\newtcbtheorem[number within=chapter]{thm}{Theorem}
+{theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
+    boxrule=0pt,toprule=1pt,bottomrule=0pt,left=0.2cm,right=0.2cm,
+    titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
+    colframe=white!25!black,colback=white!80!gray,coltitle=white,
+    title style={white!25!black},
+    fonttitle=\sffamily,fontupper=\normalsize}{thm}
+
+\newtcbtheorem[number within=chapter]{prop}{Proposition}
+{theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
+    boxrule=0pt,toprule=1pt,bottomrule=0pt,left=0.2cm,right=0.2cm,
+    titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
+    colframe=white!25!black,colback=white!80!gray,coltitle=white,
+    title style={white!25!black},
+    fonttitle=\sffamily,fontupper=\normalsize}{prop}
+
+\newtcbtheorem[number within=chapter]{example}{Example}
+{theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
+    boxrule=0pt,toprule=1pt,bottomrule=0pt,left=0.2cm,right=0.2cm,
+    titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
+    colframe=white!25!black,colback=white!80!gray,coltitle=white,
+    title style={white!25!black},
+    fonttitle=\sffamily,fontupper=\normalsize}{ex}
+
+\newtcbtheorem[number within=chapter]{definition}{Definition}
+{theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
+    boxrule=0pt,toprule=1pt,bottomrule=0pt,left=0.2cm,right=0.2cm,
+    titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
+    colframe=white!25!black,colback=white!80!gray,coltitle=white,
+    title style={white!25!black},
+    fonttitle=\sffamily,fontupper=\normalsize}{def}
+
+
+

@@ -1,0 +1,99 @@
+% Template heavily based on Gilles Castel preamble.tex 
+% https://github.com/gillescastel/university-setup/blob/master/preamble.tex
+
+% Basic packages
+\usepackage[a4paper, margin=2cm]{geometry}
+%\usepackage[english, spanish, es-tabla]{babel}
+\usepackage{parskip} % Doesnt indent paragraph
+
+% Math
+\usepackage{amsfonts, amsmath, amsthm, amssymb}
+\usepackage{mathtools}
+% fancy closed integrals
+\usepackage{esint}
+% TODO notes
+%\usepackage{todonote}
+% Fancy headers
+%\usepackage{fancyhdr}
+\usepackage{titleps}
+
+% Good looking units with \si{} command
+\usepackage{siunitx}
+
+% graphics
+\usepackage{graphicx}
+%\usepackage[outdir=figures/]{epstopdf}
+\usepackage{epstopdf}
+
+% Quotations \say{}
+\usepackage{dirtytalk}
+
+% \diff for upright (roman) d
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+
+% \vv as bold font vector
+\usepackage{bm}
+\newcommand{\vv}[1]{\bm{\mathrm{#1}}}
+
+% \floor and \ceil functions
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% Number equations by section
+\counterwithin{equation}{section}
+
+% Fancy gray box arround theorems, propositions, examples
+% The last {} en each enviorement is the auto label prefix i.e. thm:fundamental_calculus, def:partial_derivative... are all labels 
+%\usepackage{tcolorbox}
+%\tcbuselibrary{theorems}
+%\tcbuselibrary{skins}
+%\newtcbtheorem[number within=section]{thm}{Theorem}
+%{theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
+%    boxrule=0pt,toprule=1pt,bottomrule=0pt,left=0.2cm,right=0.2cm,
+%    titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
+%    colframe=white!25!black,colback=white!80!gray,coltitle=white,
+%    title style={white!25!black},
+%    fonttitle=\sffamily,fontupper=\normalsize}{thm}
+%
+%\newtcbtheorem[number within=section]{prop}{Proposition}
+%{theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
+%    boxrule=0pt,toprule=1pt,bottomrule=0pt,left=0.2cm,right=0.2cm,
+%    titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
+%    colframe=white!25!black,colback=white!80!gray,coltitle=white,
+%    title style={white!25!black},
+%    fonttitle=\sffamily,fontupper=\normalsize}{prop}
+%
+%\newtcbtheorem[number within=section]{example}{Example}
+%{theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
+%    boxrule=0pt,toprule=1pt,bottomrule=0pt,left=0.2cm,right=0.2cm,
+%    titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
+%    colframe=white!25!black,colback=white!80!gray,coltitle=white,
+%    title style={white!25!black},
+%    fonttitle=\sffamily,fontupper=\normalsize}{ex}
+%
+%\newtcbtheorem[number within=section]{definition}{Definition}
+%{theorem style=change apart,enhanced,arc=0mm,outer arc=0mm,
+%    boxrule=0pt,toprule=1pt,bottomrule=0pt,left=0.2cm,right=0.2cm,
+%    titlerule=0.5em,toptitle=0.1cm,bottomtitle=-0.1cm,top=0.2cm,
+%    colframe=white!25!black,colback=white!80!gray,coltitle=white,
+%    title style={white!25!black},
+%    fonttitle=\sffamily,fontupper=\normalsize}{def}
+
+% Figures from inkscape
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+% Correct spacing and use long arrows in implies and iff
+\renewcommand{\implies}{\;\Longrightarrow\;}
+\renewcommand{\iff}{\;\Longleftrightarrow\;}
+
+% My name
+\author{Raúl Estévez Gómez}
+

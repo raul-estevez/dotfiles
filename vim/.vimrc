@@ -38,12 +38,17 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-   Plug 'preservim/nerdtree'
-   Plug 'itchyny/lightline.vim'
-   Plug 'morhetz/gruvbox'
-   Plug 'tpope/vim-fugitive'
-   Plug 'lervag/vimtex'
-   Plug 'SirVer/ultisnips'
+    Plug 'preservim/nerdtree'
+    Plug 'itchyny/lightline.vim'
+    Plug 'morhetz/gruvbox'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-commentary' " gcc para comentar línea, gc para comentar en bloque
+    " LaTeX
+    Plug 'lervag/vimtex'
+    Plug 'SirVer/ultisnips'
+    " Python
+    Plug 'Vimjas/vim-python-pep8-indent'
+    Plug 'vim-python/python-syntax'
 call plug#end()
 
 " Vimtex

@@ -23,7 +23,7 @@ endglobal
 ## Templates
 snippet templateesreport "Spanish main template" bA
 \documentclass[a4paper, 10pt]{report}
-\input{~/latex/es_preamble.tex}
+\input{~/latex/report_preamble/es_report_preamble.tex}
 
 \begin{document}
 	\pagestyle{main}
@@ -34,7 +34,7 @@ endsnippet
 
 snippet templateenreport "English main template" bA
 \documentclass[a4paper, 10pt]{report}
-\input{~/latex/en_preamble.tex}
+\input{~/latex/report_preamble/en_report_preamble.tex}
 
 \begin{document}
 	\pagestyle{main}
@@ -48,6 +48,28 @@ snippet templatechapter "Spanish chapter template" bA
 \begin{document}
 	\chapter{\sffamily $2}
 	$0
+\end{document}
+endsnippet
+
+snippet templateesarticle "Spanish article template"
+\documentclass[a4paper, 10pt]{article}
+\input{~/latex/article_preamble/es_report_preamble.tex}
+
+\begin{document}
+	\title{$1}
+	\maketitle
+
+\end{document}
+endsnippet
+
+snippet templateenarticle "English article template"
+\documentclass[a4paper, 10pt]{article}
+\input{~/latex/article_preamble/en_report_preamble.tex}
+
+\begin{document}
+	\title{$1}
+	\maketitle
+
 \end{document}
 endsnippet
 

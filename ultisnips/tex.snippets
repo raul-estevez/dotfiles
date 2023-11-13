@@ -53,7 +53,7 @@ endsnippet
 
 snippet templateesarticle "Spanish article template"
 \documentclass[a4paper, 10pt]{article}
-\input{~/latex/article_preamble/es_report_preamble.tex}
+\input{~/latex/article_preamble/es_article_preamble.tex}
 
 \begin{document}
 	\title{$1}
@@ -64,7 +64,7 @@ endsnippet
 
 snippet templateenarticle "English article template"
 \documentclass[a4paper, 10pt]{article}
-\input{~/latex/article_preamble/en_report_preamble.tex}
+\input{~/latex/article_preamble/en_article_preamble.tex}
 
 \begin{document}
 	\title{$1}
@@ -86,6 +86,10 @@ endsnippet
 
 snippet emp "\emph{}" w
 \emph{$1} $0
+endsnippet
+
+snippet dts "\dots" wA
+\dots $0
 endsnippet
 
 ## FIGURE
@@ -264,7 +268,7 @@ snippet conj "conjugate" iA
 endsnippet
 
 context "math()"
-snippet cd "\cdot" wA
+snippet cd "\cdot" w
 \cdot $0
 endsnippet
 

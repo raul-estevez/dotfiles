@@ -125,6 +125,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+
 cdl() { cd "$@" && ls; }
 
 # Vivado... & SDRconnect

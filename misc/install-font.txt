@@ -1,0 +1,10 @@
+To install a font, first download the TrueType (.ttf) or OpenType files. 
+Then, for system wide installation copy the files to:
+- For TrueType:
+    /usr/share/fonts/truetype/<font-name>
+- For OpenType:
+    /usr/share/fonts/opentype/<font-name>
+
+Then run:
+    fc-cache -fv 
+And done.

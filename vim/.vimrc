@@ -53,8 +53,12 @@ endif
 call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'itchyny/lightline.vim'
+    " Themes
     Plug 'morhetz/gruvbox'
+    Plug 'sainnhe/everforest'   
+    " Git
     Plug 'tpope/vim-fugitive'
+    " gcc to comment line, gc to coment block
     Plug 'tpope/vim-commentary' " gcc para comentar línea, gc para comentar en bloque
     " LaTeX
     Plug 'lervag/vimtex'
@@ -79,10 +83,22 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 "set spelllang=es,en_gb
 "inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-let g:gruvbox_contrast_dark = 'soft' " soft/medium/hard
-let g:gruvbox_italic = 1 " Italices comments
-colorscheme gruvbox
+" Important!!
+if has('termguicolors')
+  set termguicolors
+endif
+
 set background=dark
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'hard'
+" For better performance
+let g:everforest_better_performance = 1
+colorscheme everforest
+
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
+
 
 " NERDTree
 nnoremap <C-f> :NERDTreeFind<CR> " Abrir NERDTree

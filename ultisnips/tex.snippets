@@ -261,10 +261,14 @@ endsnippet
 ## MATH STUFF 
 
 context "math()"
+snippet ft "Fourier transform operator" iA
+\mathcal{F}\left\\{ $1 \right\\}\!(${2:\tau}) $0
+endsnippet
+
+context "math()"
 snippet <> "dot product" iA
 \langle $1 \rangle $0
 endsnippet
-
 
 context "math()"
 snippet pm "\pm" i
@@ -448,11 +452,6 @@ endsnippet
 context "math()"
 snippet floor "floorfunction" wA
 \floor*{$1} $0
-endsnippet
-
-context "math()"
-snippet tau "tau" wA
-\tau $0
 endsnippet
 
 context "math()"

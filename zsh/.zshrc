@@ -26,6 +26,9 @@ PS1='%F{green}%n@%m%f$vcs_info_msg_0_ %~ $ '
 # End of configuration of the termonal prompt
 
 # Start of aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
 alias free='free -htw --si'
 alias la='ls -alFh --group-directories-first'
 alias mkdir='mkdir -v'
@@ -36,3 +39,4 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 # End of aliases
 
+export PATH=$PATH:/tools/Xilinx/Vivado/2018.3/bin:/opt/sdrconnect/

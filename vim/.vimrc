@@ -69,7 +69,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Vimtex
-let g:tex_flavor='latex'
+let g:tex_flavor='luatex'
 let g:vimtex_view_method='zathura'
 "
 "" Ultisnips

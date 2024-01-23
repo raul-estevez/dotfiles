@@ -99,6 +99,9 @@ let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
 
+" Merlin OCaml
+let g:opamshare = substitute(system('opam var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " NERDTree
 nnoremap <C-f> :NERDTreeFind<CR> " Abrir NERDTree

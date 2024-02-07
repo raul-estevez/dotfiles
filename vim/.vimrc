@@ -56,8 +56,6 @@ call plug#begin('~/.vim/plugged')
     " Themes
     Plug 'morhetz/gruvbox'
     Plug 'sainnhe/everforest'   
-    " Git
-    Plug 'tpope/vim-fugitive'
     " gcc to comment line, gc to coment block
     Plug 'tpope/vim-commentary' " gcc para comentar línea, gc para comentar en bloque
     " LaTeX
@@ -79,9 +77,15 @@ let g:UltiSnipsJumpBackwardTrigger="kj"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 " Spell check
-"setlocal spell
-"set spelllang=es,en_gb
-"inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+setlocal spell
+set spelllang=es,en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+" Fix spell check highlight. Always before :coloscheme
+augroup my_colours
+  autocmd!
+  autocmd ColorScheme everforest hi SpellBad cterm=underline
+augroup END
 
 " Important!!
 if has('termguicolors')
@@ -98,10 +102,6 @@ colorscheme everforest
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
-
-" Merlin OCaml
-let g:opamshare = substitute(system('opam var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " NERDTree
 nnoremap <C-f> :NERDTreeFind<CR> " Abrir NERDTree

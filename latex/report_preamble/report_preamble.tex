@@ -17,8 +17,11 @@
 %\usepackage{fancyhdr}
 \usepackage{titleps}
 
+% \vv for vectors (the [] argument is the arrow type see https://ctan.fisiquimicamente.com/macros/latex/contrib/esvect/esvect.pdf)
+\usepackage[c]{esvect}
+
 % Good looking units with \si{} command
-\usepackage{siunitx}
+\usepackage[per-mode=symbol]{siunitx}
 
 % graphics
 \usepackage{graphicx}
@@ -43,8 +46,8 @@
 \newcommand{\diff}{\mathop{}\!\mathrm{d}}
 
 % \vv as bold font vector
-\usepackage{bm}
-\newcommand{\vv}[1]{\bm{\mathrm{#1}}}
+%\usepackage{bm}
+%\newcommand{\vv}[1]{\bm{\mathrm{#1}}}
 
 % \floor and \ceil functions
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}

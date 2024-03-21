@@ -92,6 +92,15 @@ snippet dts "\dots" wA
 \dots $0
 endsnippet
 
+snippet ref "\ref" w
+\ref{$1} $0
+endsnippet
+
+context "math()"
+snippet si "units"
+\;\si{$1}$0
+endsnippet
+
 ## FIGURE
 snippet sfig "svg figure" bA
 \begin{figure}[ht]
@@ -103,6 +112,15 @@ snippet sfig "svg figure" bA
 $0
 endsnippet
 
+snippet fig "normal figure" bA
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=$1]{$2}
+	\caption{$3}
+	\label{fig:$4}
+\end{figure}
+$0
+endsnippet
 
 ## EQUATIONS
 snippet eq "equation" Ab
@@ -419,15 +437,23 @@ snippet "([a-zA-Z])hat" "postfix hat" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
+priority 100
 context "math()"
-snippet "([a-zA-Z]),\." "postfic vector" Arw
-\vv{`!p snip.rv=match.group(1)`} $0
+snippet "([a-zA-Z])til" "postfix tilde" riA
+\tilde{`!p snip.rv=match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "([a-zA-Z])\.," "postfix vector 2" Arw
-\vv{`!p snip.rv=match.group(1)`} $0
+snippet "([a-zA-Z])vv" "postfic vector" Arw
+\vec{`!p snip.rv=match.group(1)`}$0
 endsnippet
+# Esto para usar el paquete esvect, pero me parecen demasiado grandes las flechas.
+# \vv{`!p snip.rv=match.group(1)`}$0
+
+# context "math()"
+# snippet "([a-zA-Z])\.," "postfix vector 2" Arw
+# \vv{`!p snip.rv=match.group(1)`}$0
+# endsnippet
 
 context "math()"
 snippet ov "Overline" Ai
@@ -694,4 +720,9 @@ endsnippet
 context "math()"
 snippet dig "digamma" iA
 \digamm$0
+endsnippet
+
+context "math()"
+snippet sha "\sha" iA
+\sha
 endsnippet

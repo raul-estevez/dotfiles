@@ -17,11 +17,15 @@
 %\usepackage{fancyhdr}
 \usepackage{titleps}
 
+% \vv for vectors (the [] argument is the arrow type see https://ctan.fisiquimicamente.com/macros/latex/contrib/esvect/esvect.pdf)
+\usepackage[e]{esvect}
+
 % Good looking units with \si{} command
-\usepackage{siunitx}
+\usepackage[per-mode=symbol]{siunitx}
 
 % graphics
 \usepackage{graphicx}
+\graphicspath{ {./figures/} }
 %\usepackage[outdir=figures/]{epstopdf}
 \usepackage{epstopdf}
 
@@ -32,8 +36,8 @@
 \newcommand{\diff}{\mathop{}\!\mathrm{d}}
 
 % \vv as bold font vector
-\usepackage{bm}
-\newcommand{\vv}[1]{\bm{\mathrm{#1}}}
+%\usepackage{bm}
+%\newcommand{\vv}[1]{\bm{\mathrm{#1}}}
 
 % \floor and \ceil functions
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
@@ -85,9 +89,9 @@
 \usepackage{pdfpages}
 \usepackage{transparent}
 
-\newcommand{\incfig}[2][1]{%
-    \def\svgwidth{#1\columnwidth}
-    \import{./figures/}{#2.pdf_tex}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
 }
 
 % Correct spacing and use long arrows in implies and iff

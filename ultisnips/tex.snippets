@@ -543,12 +543,15 @@ snippet rot "rotational" Aw
 endsnippet
 
 context "math()"
-priority 1
-snippet intd "integral" Aw
+snippet dint "Integral definida" Aw
 \int_{$1}^{$2} $0
 endsnippet
 
-priority 2
+context "math()"
+snippet bint "bounded integral" Aw
+\int_{$1}^{$2} $0
+endsnippet
+
 context "math()"
 snippet int "integral" Aw
 \int

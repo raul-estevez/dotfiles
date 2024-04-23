@@ -106,8 +106,9 @@ snippet sfig "svg figure" bA
 \begin{figure}[ht]
 	\centering
 	\incfig{$1}
+    \def\svgwidth{\columnwidth}
 	\caption{$2}
-	\label{fig:$3}
+	\label{fig:$1}
 \end{figure}
 $0
 endsnippet
@@ -117,7 +118,7 @@ snippet fig "normal figure" bA
 	\centering
 	\includegraphics[scale=$1]{$2}
 	\caption{$3}
-	\label{fig:$4}
+	\label{fig:$1}
 \end{figure}
 $0
 endsnippet

@@ -29,23 +29,11 @@
 \graphicspath{ {./figures/} }
 %\usepackage[outdir=figures/]{epstopdf}
 \usepackage{epstopdf}
+\usepackage{caption}
+\usepackage{subcaption}
 
 % Quotations \say{}
 \usepackage{dirtytalk}
-
-% \diff for upright (roman) d
-\newcommand{\diff}{\mathop{}\!\mathrm{d}}
-
-% \vv as bold font vector
-%\usepackage{bm}
-%\newcommand{\vv}[1]{\bm{\mathrm{#1}}}
-
-% \floor and \ceil functions
-\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
-\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-
-% Number equations by section
-\counterwithin{equation}{section}
 
 % Fancy gray box arround theorems, propositions, examples
 % The last {} en each enviorement is the auto label prefix i.e. thm:fundamental_calculus, def:partial_derivative... are all labels 
@@ -102,10 +90,27 @@
 \DeclareMathOperator{\sgn}{sgn}
 % sinc function
 \DeclareMathOperator{\sinc}{sinc}
+% rect function
+\DeclareMathOperator{\rect}{rect}
+
 
 % abs |\cdot| and norm ||\dcot|| operators
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+% \floor and \ceil functions
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% Number equations by section
+\counterwithin{equation}{section}
+
+% \diff for upright (roman) d
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+
+% \vv as bold font vector
+%\usepackage{bm}
+%\newcommand{\vv}[1]{\bm{\mathrm{#1}}}
 
 % My name
 \author{Raúl Estévez Gómez}

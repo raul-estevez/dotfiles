@@ -92,13 +92,8 @@ snippet dts "\dots" wA
 \dots $0
 endsnippet
 
-snippet ref "\ref" w
-\ref{$1} $0
-endsnippet
-
-context "math()"
-snippet ss "units" iA
-\;\si{$1}$0
+snippet ss "units" i
+\SI{$1}{$2}$0
 endsnippet
 
 ## FIGURE
@@ -118,13 +113,17 @@ snippet fig "normal figure" bA
 	\centering
 	\includegraphics[scale=$1]{$2}
 	\caption{$3}
-	\label{fig:$1}
+	\label{fig:$2}
 \end{figure}
 $0
 endsnippet
 
-snippet ref "reference" b
-\ref{$1} $0
+snippet ref "\ref" w
+\ref{fig:$1} $0
+endsnippet
+
+snippet eqr "equation reference" w
+\eqref{$1} $0
 endsnippet
 
 ## EQUATIONS
@@ -417,7 +416,7 @@ endsnippet
 
 context "math()"
 snippet sq "\sqrt{}" wA
-\sqrt{${1:${VISUAL}}} $0
+\sqrt{${1:${VISUAL}}}$0
 endsnippet
 
 context "math()"

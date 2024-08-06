@@ -121,3 +121,4 @@ alias ....='cd ../../..'
 
 source ~/.wol
 export PATH=$PATH:/tools/Xilinx/Vivado/2018.3/bin:/opt/sdrconnect/
+export LEDGER_FILE=$HOME/finance/2024.journal

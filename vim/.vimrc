@@ -14,7 +14,7 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-set expandtab " En vez de tabs espacios
+set expandtab " En vez de tabs, espacios
 set smarttab
 set shiftwidth=4
 set tabstop=4
@@ -104,9 +104,16 @@ let g:lightline = {
       \ }
 
 " NERDTree
-nnoremap <C-f> :NERDTreeFind<CR> " Abrir NERDTree
+" Open shortcut
+nnoremap <C-f> :NERDTreeFind<CR>
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
+" Auto open
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+
+autocmd VimEnter * wincmd w
+
 
 "Moverse entre splits
 nnoremap <M-h> <C-w>h
@@ -138,5 +145,8 @@ nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
 
+" Beginning/End of line
+nnoremap H ^
+nnoremap L $
 nnoremap <Leader>d ""d
 noremap <Leader>d ""d

@@ -8,7 +8,7 @@
 
 % Math
 \usepackage{amsfonts, amsmath, amsthm, amssymb}
-\usepackage{mathtools}
+\usepackage{mathtools} % Extension of amsmath
 % fancy closed integrals
 \usepackage{esint}
 % TODO notes
@@ -18,7 +18,7 @@
 \usepackage{titleps}
 
 % \vv for vectors (the [] argument is the arrow type see https://ctan.fisiquimicamente.com/macros/latex/contrib/esvect/esvect.pdf)
-\usepackage[e]{esvect}
+%\usepackage[e]{esvect}
 
 % Good looking units with \si{} command
 \usepackage[per-mode=symbol]{siunitx}
@@ -108,9 +108,12 @@
 % \diff for upright (roman) d
 \newcommand{\diff}{\mathop{}\!\mathrm{d}}
 
+% Inner product (scalable with *)
+\DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{#1, #2}
+
 % \vv as bold font vector
-%\usepackage{bm}
-%\newcommand{\vv}[1]{\bm{\mathrm{#1}}}
+\usepackage{bm}
+\newcommand{\vv}[1]{\bm{\mathrm{#1}}}
 
 % My name
 \author{Raúl Estévez Gómez}

@@ -124,17 +124,6 @@ if empty(v:servername) && exists('*remote_startserver')
   call remote_startserver('VIM')
 endif
 
-function! ZathuraHook() dict abort
-  if self.xwin_id <= 0 | return | endif
-
-  silent call system('xdotool windowactivate ' . self.xwin_id . ' --sync')
-  silent call system('xdotool windowraise ' . self.xwin_id)
-endfunction
-
-let g:vimtex_view_zathura_hook_view = 'ZathuraHook'
-
-nmap <localleader>v <plug>(vimtex-view)
-
 "Moverse entre splits
 nnoremap <M-h> <C-w>h
 nnoremap <M-j> <C-w>j

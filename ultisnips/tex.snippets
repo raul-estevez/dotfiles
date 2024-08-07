@@ -283,6 +283,11 @@ endsnippet
 ## MATH STUFF 
 
 context "math()"
+snippet inn "inner product" Aw
+\inner{$1}{$2} $0
+endsnippet
+
+context "math()"
 snippet abs "absolute value" Aw
 \abs{$1} $0
 endsnippet
@@ -358,7 +363,6 @@ context "math()"
 snippet of "The same as above but general" iA
 ($1)$0
 endsnippet
-
 
 context "math()"
 priority 1
@@ -458,20 +462,18 @@ snippet "([a-zA-Z])til" "postfix tilde" riA
 endsnippet
 
 context "math()"
-snippet "([a-zA-Z])vv" "postfic vector" Arw
-\vec{`!p snip.rv=match.group(1)`}$0
+snippet "([a-zA-Z])vv" "postfix vector" Arw
+\vv{`!p snip.rv=match.group(1)`}$0
 endsnippet
-# Esto para usar el paquete esvect, pero me parecen demasiado grandes las flechas.
-# \vv{`!p snip.rv=match.group(1)`}$0
-
-# context "math()"
-# snippet "([a-zA-Z])\.," "postfix vector 2" Arw
-# \vv{`!p snip.rv=match.group(1)`}$0
-# endsnippet
 
 context "math()"
-snippet ov "Overline" Ai
-\overline{$1} $0
+snippet "([a-zA-Z])ov" "postfix overline" Arw
+\overline{`!p snip.rv=match.group(1)`} $0
+endsnippet
+
+context "math()"
+snippet "ov([a-zA-Z])" "postfix overline" Arw
+\overline{`!p snip.rv=match.group(1)`} $0
 endsnippet
 
 context "math()"

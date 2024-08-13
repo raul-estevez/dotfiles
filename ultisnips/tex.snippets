@@ -88,6 +88,10 @@ snippet emp "\emph{}" w
 \emph{$1} $0
 endsnippet
 
+snippet say "\say{}" w
+\say{$1} $0
+endsnippet
+
 snippet dts "\dots" wA
 \dots $0
 endsnippet
@@ -283,6 +287,18 @@ endsnippet
 ## MATH STUFF 
 
 context "math()"
+snippet fa "in" w
+\forall
+endsnippet
+
+priority 100
+context "math()"
+snippet in "in" w
+\in
+endsnippet
+
+priority 1000
+context "math()"
 snippet inn "inner product" Aw
 \inner{$1}{$2} $0
 endsnippet
@@ -443,6 +459,11 @@ snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
+context "math()"
+snippet "([a-zA-Z])st" "postfix hat" riA 
+`!p snip.rv=match.group(1)`^{*}
+endsnippet
+
 priority 10
 context "math()"
 snippet "hat" "hat" riA
@@ -455,10 +476,28 @@ snippet "([a-zA-Z])hat" "postfix hat" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
-priority 100
+priority 10
 context "math()"
 snippet "([a-zA-Z])til" "postfix tilde" riA
 \tilde{`!p snip.rv=match.group(1)`}
+endsnippet
+
+priority 100
+context "math()"
+snippet "([a-zA-Z])wti" "postfix tilde" riA
+\widetilde{`!p snip.rv=match.group(1)`}
+endsnippet
+
+priority 10
+context "math()"
+snippet "til" "tilde" riA
+\tilde{$1}$0
+endsnippet
+
+priority 100
+context "math()"
+snippet "wti" "postfix tilde" riA
+\widetilde{$1}$0
 endsnippet
 
 context "math()"
@@ -585,163 +624,163 @@ endsnippet
 priority 0
 
 context "math()"
-snippet Ga "Gamma" iA
+snippet Ga "Gamma" Aw
 \Gamma$0
 endsnippet
 
 context "math()"
-snippet Del "Delta" iA
+snippet Del "Delta" Aw
 \Delta$0
 endsnippet
 
-snippet \L "Lambda" i
+snippet \L "Lambda" 
 \Lambda$0
 endsnippet
 
-snippet \F "Phi" i
+snippet \F "Phi" 
 \Phi$0
 endsnippet
 
-snippet \P "Pi" i
+snippet \P "Pi" 
 \Pi$0
 endsnippet
 
 context "math()"
-snippet Psi "Psi" iA
+snippet Psi "Psi" Aw
 \Psi$0
 endsnippet
 
 context "math()"
-snippet Sig  "Sigma" iA
+snippet Sig  "Sigma" Aw
 \Sigma$0
 endsnippet
 
-snippet \Th "Theta" i
+snippet \Th "Theta" 
 \Theta$0
 endsnippet
 
-snippet \Y "Upsilon" i
+snippet \Y "Upsilon" 
 \Upsilon$0
 endsnippet
 
-snippet \X "Xi" i
+snippet \X "Xi" 
 \Xi$0
 endsnippet
 
 context "math()"
-snippet Om "Omega" iA
+snippet Om "Omega" Aw
 \Omega$0
 endsnippet
 
 context "math()"
-snippet alp "alpha" iA
+snippet alp "alpha" Aw
 \alpha$0
 endsnippet
 
 context "math()"
-snippet bet "beta" iA
+snippet bet "beta" Aw
 \beta$0
 endsnippet
 
 context "math()"
-snippet gam "gamma" iA
+snippet gam "gamma" Aw
 \gamma$0
 endsnippet
 
 context "math()"
-snippet del "delta" iA
+snippet del "delta" Aw
 \delta$0
 endsnippet
 
 context "math()"
-snippet eps "epsilon" iA
+snippet eps "epsilon" Aw
 \epsilon$0
 endsnippet
 
 context "math()"
-snippet zet "zeta" iA
+snippet zet "zeta" Aw
 \zeta$0
 endsnippet
 
 context "math()"
-snippet eta "eta" iA
+snippet eta "eta" Aw
 \eta$0
 endsnippet
 
 context "math()"
-snippet tet "theta" iA
+snippet tet "theta" Aw
 \theta$0
 endsnippet
 
 context "math()"
-snippet iot "iota" iA
+snippet iot "iota" Aw
 \iota$0
 endsnippet
 
 context "math()"
-snippet kap "kappa" iA
+snippet kap "kappa" Aw
 \kappa$0
 endsnippet
 
 context "math()"
-snippet lam "lambda" iA
+snippet lam "lambda" Aw
 \lambda$0
 endsnippet
 
 context "math()"
-snippet mu "mu" iA
+snippet mu "mu" Aw
 \mu$0
 endsnippet
 
 context "math()"
-snippet nu "nu" iA
+snippet nu "nu" Aw
 \nu$0
 endsnippet
 
 context "math()"
-snippet xi "xi" iA
+snippet xi "xi" Aw
 \xi$0
 endsnippet
 
-snippet rho "rho" iA
+snippet rho "rho" Aw
 \rho$0
 endsnippet
 
 context "math()"
-snippet sig "sigma" iA
+snippet sig "sigma" Aw
 \sigma$0
 endsnippet
 
 context "math()"
-snippet tau "tau" iA
+snippet tau "tau" Aw
 \tau$0
 endsnippet
 
-snippet phi "phi" iA
+snippet phi "phi" Aw
 \phi$0
 endsnippet
 
 context "math()"
-snippet chi "chi" iA
+snippet chi "chi" Aw
 \chi$0
 endsnippet
 
 context "math()"
-snippet psi "psi" iA
+snippet psi "psi" Aw
 \psi$0
 endsnippet
 
 context "math()"
-snippet ome "omega" iA
+snippet ome "omega" Aw
 \omega$0
 endsnippet
 
 context "math()"
-snippet dig "digamma" iA
+snippet dig "digamma" Aw
 \digamm$0
 endsnippet
 
 context "math()"
-snippet sha "\sha" iA
+snippet sha "\sha" Aw
 \sha
 endsnippet

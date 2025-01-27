@@ -56,7 +56,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-    Plug 'preservim/nerdtree'
+    "Plug 'preservim/nerdtree'
     Plug 'itchyny/lightline.vim'
     " Themes
     Plug 'morhetz/gruvbox'
@@ -69,10 +69,15 @@ call plug#begin('~/.vim/plugged')
     " Python
     Plug 'Vimjas/vim-python-pep8-indent'
     Plug 'vim-python/python-syntax'
+    " highligt #ifed
+    Plug 'vim-scripts/ifdef-highlighting'
+    " Auto-update ctags and highlight typedefs and all that
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-easytags'
 call plug#end()
 
 " Vimtex
-"let g:tex_flavor='luatex'
+let g:tex_flavor='luatex'
 let g:vimtex_view_method='zathura'
 "
 "" Ultisnips
@@ -108,16 +113,16 @@ let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
 
-" NERDTree
-" Open shortcut
-nnoremap <C-f> :NERDTreeFind<CR>
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
-" Auto open
-autocmd VimEnter * NERDTree
-autocmd BufEnter * NERDTreeMirror
+" " NERDTree
+" " Open shortcut
+" nnoremap <C-f> :NERDTreeFind<CR>
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+"     \ quit | endif
+" " Auto open
+" autocmd VimEnter * NERDTree
+" autocmd BufEnter * NERDTreeMirror
 
-autocmd VimEnter * wincmd w
+" autocmd VimEnter * wincmd w
 
 " Start remote server for Vimtex forward/inverse search
 if empty(v:servername) && exists('*remote_startserver')
@@ -131,7 +136,7 @@ function! ZathuraHook() dict abort
   silent call system('xdotool windowraise ' . self.xwin_id)
 endfunction
 
-let g:vimtex_view_zathura_hook_view = 'ZathuraHook'
+" let g:vimtex_view_zathura_hook_view = 'ZathuraHook'
 
 nmap <localleader>v <plug>(vimtex-view)
 
@@ -170,3 +175,19 @@ nnoremap H ^
 nnoremap L $
 nnoremap <Leader>d ""d
 noremap <Leader>d ""d
+
+
+" Navigate buffers
+map gn :bnext<cr>
+map gp :bprevious<cr>
+map gd :bdelete<cr> 
+
+" Navigate tabs
+map tn :tabnext<cr>
+map tp :tabprev<cr>
+map td :tabclose<cr>
+map t1 :tabm 0<cr>
+map t2 :tabm 1<cr>
+map t3 :tabm 2<cr>
+map t4 :tabm 3<cr>
+map t5 :tabm 4<cr>

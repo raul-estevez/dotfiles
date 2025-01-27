@@ -1,0 +1,8 @@
+If you are in gnome:
+    - Edit: ~/.config/gtk-3.0/settings.ini
+    - Paste:
+
+[Settings]
+gtk-application-prefer-dark-theme=1
+
+    - Restart KiCAD and it should be in dark mode.

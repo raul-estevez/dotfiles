@@ -100,6 +100,10 @@ snippet ss "units" i
 \SI{$1}{$2}$0
 endsnippet
 
+snippet matlab "Cool Matlab" 
+\textsc{Matlab}
+endsnippet
+
 ## FIGURE
 snippet sfig "svg figure" bA
 \begin{figure}[ht]
@@ -260,10 +264,6 @@ endsnippet
 
 ## MATH LETTERS 
 
-snippet mcal "mathcal" wA
-\mathcal{$1}$0
-endsnippet
-
 context "math()"
 snippet ll "l" wA
 \ell
@@ -271,20 +271,25 @@ endsnippet
 
 context "math()"
 snippet bb "\mathbb{}" Aw
-\mathbb{${1:R}} $0
+\mathbb{${1:R}}$0
 endsnippet
 
 context "math()"
 snippet rm "\mathrm{}" Aw
-\mathrm{$1} $0
+\mathrm{$1}$0
 endsnippet
 
 context "math()"
-snippet cal "\mathrm{}" Aw
-\mathcal{$1} $0
+snippet cal "\mathcal{}" Ai
+\mathcal{$1}$0
 endsnippet
 
 ## MATH STUFF 
+
+context "math()"
+snippet cc "convolution" wA
+\ast $0
+endsnippet
 
 context "math()"
 snippet fa "in" w
@@ -305,12 +310,12 @@ endsnippet
 
 context "math()"
 snippet abs "absolute value" Aw
-\abs{$1} $0
+\abs{$1}$0
 endsnippet
 
 context "math()"
 snippet norm "absolute value" Aw
-\norm{$1} $0
+\norm{$1}$0
 endsnippet
 
 context "math()"
@@ -476,7 +481,7 @@ snippet "([a-zA-Z])hat" "postfix hat" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
-priority 10
+priority 100
 context "math()"
 snippet "([a-zA-Z])til" "postfix tilde" riA
 \tilde{`!p snip.rv=match.group(1)`}
@@ -494,7 +499,7 @@ snippet "til" "tilde" riA
 \tilde{$1}$0
 endsnippet
 
-priority 100
+priority 10
 context "math()"
 snippet "wti" "postfix tilde" riA
 \widetilde{$1}$0
@@ -624,16 +629,16 @@ endsnippet
 priority 0
 
 context "math()"
-snippet Ga "Gamma" Aw
+snippet Ga "Gamma" Ai
 \Gamma$0
 endsnippet
 
 context "math()"
-snippet Del "Delta" Aw
+snippet Del "Delta" Ai
 \Delta$0
 endsnippet
 
-snippet \L "Lambda" 
+snippet \L "Lambda" i
 \Lambda$0
 endsnippet
 
@@ -668,7 +673,7 @@ snippet \X "Xi"
 endsnippet
 
 context "math()"
-snippet Om "Omega" Aw
+snippet Ome "Omega" Aw
 \Omega$0
 endsnippet
 
@@ -771,7 +776,7 @@ snippet psi "psi" Aw
 endsnippet
 
 context "math()"
-snippet ome "omega" Aw
+snippet ome "omega" Ai
 \omega$0
 endsnippet
 

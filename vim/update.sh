@@ -6,11 +6,14 @@ git clone https://github.com/vim/vim
 cd vim 
 ./configure --with-features=huge \
             --enable-multibyte \
-            --enable-python3interp=yes \
+            --disable-gui \
+            --enable-python3interp \
             --with-python3-config-dir=$(python3-config --configdir) \
-            --enable-perlinterp=yes \
-            --enable-luainterp=yes \
+            --with-python3-command=/usr/bin/python3 \
+            --enable-perlinterp \
+            --enable-luainterp \
             --enable-cscope \
             --prefix=/usr/local
-make
+make -j4
 sudo make install
+rm -rf ../vim

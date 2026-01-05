@@ -72,13 +72,24 @@ call plug#begin('~/.vim/plugged')
     " highligt #ifed
     Plug 'vim-scripts/ifdef-highlighting'
     " Auto-update ctags and highlight typedefs and all that
-    Plug 'xolox/vim-misc'
-    Plug 'xolox/vim-easytags'
+    " Plug 'xolox/vim-misc'
+    " Plug 'xolox/vim-easytags'
+    Plug 'https://github.com/bkad/CamelCaseMotion' 
+    Plug 'ledger/vim-ledger'
 call plug#end()
 
+
+" Detect .v as Verilog
+autocmd BufNewFile,BufRead *.v,*.vs set syntax=verilog
+autocmd BufNewFile,BufRead *.cir set syntax=spice
+
 " Vimtex
-let g:tex_flavor='luatex'
-let g:vimtex_view_method='zathura'
+" let g:tex_flavor='luatex'
+" let g:tex_flavor='xelatex'
+" let g:vimtex_view_method='zathura'
+let g:vimtex_view_method='general'
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_quickfix_mode=2
 "
 "" Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -191,3 +202,12 @@ map t2 :tabm 1<cr>
 map t3 :tabm 2<cr>
 map t4 :tabm 3<cr>
 map t5 :tabm 4<cr>
+
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge

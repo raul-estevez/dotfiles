@@ -27,6 +27,10 @@ set relativenumber
 set textwidth=130
 set colorcolumn=130
 
+" Folding
+set foldmethod=marker
+autocmd FileType tex set foldmarker=<<<,>>>
+
 " Search down into subfolders. Provides tab completion for all file related task
 set path+=**
 " Display matching files when tab complete
@@ -56,7 +60,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-    "Plug 'preservim/nerdtree'
+    Plug 'preservim/nerdtree'
     Plug 'itchyny/lightline.vim'
     " Themes
     Plug 'morhetz/gruvbox'
@@ -71,17 +75,25 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-python/python-syntax'
     " highligt #ifed
     Plug 'vim-scripts/ifdef-highlighting'
+
     " Auto-update ctags and highlight typedefs and all that
-    " Plug 'xolox/vim-misc'
-    " Plug 'xolox/vim-easytags'
+    Plug 'ludovicchabant/vim-gutentags'
+
     Plug 'https://github.com/bkad/CamelCaseMotion' 
     Plug 'ledger/vim-ledger'
-call plug#end()
 
+    Plug 'zenbones-theme/zenbones.nvim'
+
+call plug#end()
 
 " Detect .v as Verilog
 autocmd BufNewFile,BufRead *.v,*.vs set syntax=verilog
 autocmd BufNewFile,BufRead *.cir set syntax=spice
+
+" Gutentags
+let g:gutentags_modules = ['ctags']
+let g:gutentags_background_update = 1
+
 
 " Vimtex
 " let g:tex_flavor='luatex'
@@ -103,10 +115,10 @@ set spelllang=es,en_gb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Fix spell check highlight. Always before :coloscheme
-augroup my_colours
-  autocmd!
-  autocmd ColorScheme everforest hi SpellBad cterm=underline
-augroup END
+" augroup my_colours
+"   autocmd!
+"   autocmd ColorScheme everforest hi SpellBad cterm=underline
+" augroup END
 
 " Important!!
 if has('termguicolors')
@@ -114,26 +126,28 @@ if has('termguicolors')
 endif
 
 set background=dark
+colorscheme zenwritten 
 " Available values: 'hard', 'medium'(default), 'soft'
-let g:everforest_background = 'hard'
-" For better performance
-let g:everforest_better_performance = 1
-colorscheme everforest
+" let g:everforest_background = 'hard'
+" " For better performance
+" let g:everforest_better_performance = 1
+" colorscheme everforest
 
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'zenwritten',
       \ }
 
-" " NERDTree
-" " Open shortcut
-" nnoremap <C-f> :NERDTreeFind<CR>
-" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-"     \ quit | endif
-" " Auto open
-" autocmd VimEnter * NERDTree
-" autocmd BufEnter * NERDTreeMirror
+" NERDTree
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if winnr() == winnr('h') && bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
 
-" autocmd VimEnter * wincmd w
 
 " Start remote server for Vimtex forward/inverse search
 if empty(v:servername) && exists('*remote_startserver')

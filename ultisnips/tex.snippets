@@ -286,7 +286,7 @@ endsnippet
 ## MATH LETTERS 
 
 context "math()"
-snippet ll "l" wA
+snippet ll "l" w
 \ell
 endsnippet
 
@@ -306,6 +306,7 @@ snippet cal "\mathcal{}" Ai
 endsnippet
 
 ## MATH STUFF 
+
 
 context "math()"
 snippet cc "convolution" wA
@@ -461,13 +462,18 @@ snippet ne "not equals" iA
 endsnippet
 
 context "math()"
-snippet sq "\sqrt{}" wA
+snippet rt "\sqrt{}" wA
 \sqrt{${1:${VISUAL}}}$0
 endsnippet
 
 context "math()"
 snippet td "to the ... power" iA
 ^{$1}$0
+endsnippet
+
+context "math()"
+snippet sq "square" iA
+^2 $0
 endsnippet
 
 context "math()"

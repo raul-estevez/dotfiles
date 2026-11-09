@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: inner product
+# key: inn 
+# --
+\inner{$1}{$2} $0

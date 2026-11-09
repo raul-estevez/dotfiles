@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Chapter
+# key: chap 
+# --
+\chaper{\sffamily $1}
+
+$0

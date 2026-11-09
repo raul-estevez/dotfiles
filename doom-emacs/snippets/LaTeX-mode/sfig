@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Universal Begin
+# key: sfig 
+# --
+\begin{figure}[ht]
+	\centering
+	\incfig{$1}
+    \def\svgwidth{\columnwidth}
+	\caption{$2}
+	\label{fig:$1}
+\end{figure}
+$0

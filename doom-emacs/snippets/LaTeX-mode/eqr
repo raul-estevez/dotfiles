@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: eqref
+# key: eqr 
+# --
+\eqref{$1} $0

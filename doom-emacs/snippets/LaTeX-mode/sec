@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: section
+# key: sec 
+# --
+\section{\sffamily $1}
+
+$0

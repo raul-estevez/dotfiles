@@ -1,0 +1,6 @@
+
+# -*- mode: snippet -*-
+# name: dots
+# key: dots 
+# --
+\dost $0

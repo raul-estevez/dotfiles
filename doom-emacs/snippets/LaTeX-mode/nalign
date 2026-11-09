@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Numbered align
+# key: nali
+# --
+\begin{align}\label{$1}
+    $0
+\end{align}

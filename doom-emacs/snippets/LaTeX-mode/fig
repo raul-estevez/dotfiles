@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Universal Begin
+# key: fig
+# --
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=$1]{$2}
+	\caption{$3}
+	\label{fig:$2}
+\end{figure}
+$0

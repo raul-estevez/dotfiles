@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Numbered Gather
+# key: ngat 
+# --
+\begin{gather}\label{$1}
+    $1
+\end{gather}

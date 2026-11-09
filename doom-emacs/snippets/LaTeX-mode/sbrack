@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Auto big square brackets
+# key: []
+# --
+\left[ $1 \right] $0

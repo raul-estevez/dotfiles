@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: subsection
+# key: sub 
+# --
+\subsection{\sffamily $1}
+
+$0

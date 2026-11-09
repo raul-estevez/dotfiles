@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Universal Begin
+# key: say
+# --
+\say{${1:}} $0
